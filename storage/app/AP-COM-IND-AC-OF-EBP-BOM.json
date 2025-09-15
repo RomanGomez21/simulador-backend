@@ -1,0 +1,691 @@
+
+  {
+    "categories":[
+        {
+        "id": 4,
+        "subcategories": [
+            {
+                "id":22,
+                "energy_charges":[
+                    {
+                        "energy_price_json_id": 4,
+                        "ape_charge_id": 1,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            },
+                            {
+                                "description": "Subsidio Estado Provincial",
+                                "value": 17.34
+                            }
+                        ]
+                    }
+                ],
+                "step_charges":[
+                    {
+                        "description": "VAD Cooperativa",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": null,
+                        "value": 27.24
+                    }                
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 4000,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    }
+                ]
+            }
+        ]
+        },
+        {
+        "id":5,
+        "subcategories":[
+            {
+                "id":23,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 2313.69,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 102/08 Art. 5",
+                                "value": 4.7173
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 1115.15
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 74.33
+                    }
+                ],
+                "energy_charges":[
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD Cooperativa",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": null,
+                        "value": 33.38
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 55,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 20,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 10 
+                        }
+                    }
+                ]
+            },
+            {
+                "id":24,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 2313.69
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 11855.13
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 557.51
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD primeros 60 kWh",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": 60,
+                        "value": 33.38
+                    },
+                    {
+                        "description": "VAD excedente de 60 kWh",
+                        "unit": "energy",
+                        "min_range": 60,
+                        "max_range": null,
+                        "value": 46.11
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 1250,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 800,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 260 
+                        }
+                    }
+                ]
+            },
+            {
+                "id":25,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 2431.25
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 70219.00
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 1486.65
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD primeros 60 kWh",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": 60,
+                        "value": 36.03
+                    },
+                    {
+                        "description": "VAD excedente de 60 kWh",
+                        "unit": "energy",
+                        "min_range": 60,
+                        "max_range": null,
+                        "value": 49.39
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 3450,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 2763,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 650 
+                        }
+                    }
+                ]
+            },
+            {
+                "id":26,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 2389.14
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 154384.14
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 2428.21
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD primeros 60 kWh",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": 60,
+                        "value": 30.28
+                    },
+                    {
+                        "description": "VAD mayores a 60 kWh y hasta 4000 kWh",
+                        "unit": "energy",
+                        "min_range": 60,
+                        "max_range": 4000,
+                        "value": 43.64
+                    },
+                    {
+                        "description": "VAD excedente de 4000 kWh",
+                        "unit": "energy",
+                        "min_range": 4000,
+                        "max_range": null,
+                        "value": 36.03
+                    }  
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 6500,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 4600,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 800 
+                        }
+                    }
+                ]
+            }
+        ]    
+        },
+        {
+        "id": 6,
+        "subcategories": [
+            {
+                "id": 27,
+                "fixed_charges" : [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 2981.19
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 13954.46
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 743.33
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD Cooperativa",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": null,
+                        "value": 60.23,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 125/09 Art. 5", 
+                                "value": 0.0550
+                            }
+                        ]
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 1380,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 790,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 340 
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 28,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 3133.14
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 79989.30
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 2477.77
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD Cooperativa",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": null,
+                        "value": 61.48,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 125/09 Art. 5", 
+                                "value": 0.0550
+                            }
+                        ]
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 3690,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 2430,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 740 
+                        }
+                    }
+                ]
+            },
+            {
+                "id":29,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 3126.23
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 233850.68
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 7433.28
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD primeros 4000 kWh",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": 4000,
+                        "value": 58.29,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 125/09 Art. 5", 
+                                "value": 0.0550
+                            }
+                        ]
+                    },
+                    {
+                        "description": "VAD excedente de 4000 kWh",
+                        "unit": "energy",
+                        "min_range": 4000,
+                        "max_range": null,
+                        "value": 51.63,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 125/09 Art. 5", 
+                                "value": 0.0550
+                            }
+                        ]
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 8659,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 5720,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 1350 
+                        }
+                    }
+                ]
+            }
+        ]    
+        },
+        {
+        "id":7,
+        "subcategories": [
+            {
+                "id":30,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 1468.25
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 7305.67
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 247.78
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD Cooperativa",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": null,
+                        "value": 38.47,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 125/09 Art. 6", 
+                                "value": 0.0694
+                            }
+                        ]
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 1380,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 790,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 340 
+                        }
+                    }
+                ]
+            },
+            {
+                "id":31,
+                "fixed_charges": [
+                    {
+                        "description": "Cargo Fijo",
+                        "value": 1542.43
+                    },
+                    {
+                        "description": "Cargo por Potencia",
+                        "value": 76544.17
+                    },
+                    {
+                        "description": "Fondo Cooperativo Compensador",
+                        "value": 1238.87
+                    }
+                ],
+                "energy_charges": [
+                    {
+                        "energy_price_json_id": 3,
+                        "description": "Costo Compra de Energía",
+                        "min_range": 0,
+                        "max_range": null,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Estado Nacional",
+                                "value": 26.93
+                            }
+                        ]   
+                    }
+                ],
+                "step_charges": [
+                    {
+                        "description": "VAD Cooperativa",
+                        "unit": "energy",
+                        "min_range": 0,
+                        "max_range": null,
+                        "value": 41.26,
+                        "subsidies": [
+                            {
+                                "description": "Subsidio Disp. APE 125/09 Art. 6", 
+                                "value": 0.0694
+                            }
+                        ]
+                    }
+                ],
+                "energy_injection_charges": [
+                    {
+                        "description": "Tarifa de Inyección",
+                        "value":  79.17
+                    }
+                ],
+                "consumptions":[
+                    {
+                        "khw_value": 3228,
+                        "kvarh_value": null,
+                        "kw_value": null
+                    },
+                    {
+                        "khw_value": 2600,
+                        "kvarh_value": null,
+                        "kw_value": null,
+                        "injection" : {
+                            "khw_value": 360 
+                        }
+                    }
+                ]
+            }
+        ]    
+        }
+
+    ]
+
+  }  
