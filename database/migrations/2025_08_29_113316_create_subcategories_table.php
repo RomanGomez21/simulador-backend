@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('include_min_power');
             $table->boolean('include_max_power');
             // Potencia aparente del transformador
-            $table->integer('transformer_apparent_power')->nullable();
+            $table->string('transformer_apparent_power',5)->nullable();
             $table->timestamps();
         });
 
