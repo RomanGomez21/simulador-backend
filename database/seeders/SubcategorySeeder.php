@@ -15,166 +15,1714 @@ class SubcategorySeeder extends Seeder
     {
         $subcategories=[
             //Residenciales N1
-            ['category_id'=> 1, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 1, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 1, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 1, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 1, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 1, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 1, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes',
+                'min_range_energy'=>0,
+                'max_range_energy'=>120,
+                'include_min_energy'=>true,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 1, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes',
+                'min_range_energy'=>120,
+                'max_range_energy'=>220,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null
+            ],
+            [
+                'category_id'=> 1, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 500 kWh/mes',
+                'min_range_energy'=>220,
+                'max_range_energy'=>500,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 1, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes',
+                'min_range_energy'=>500,
+                'max_range_energy'=>700,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 1, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes',
+                'min_range_energy'=>700,
+                'max_range_energy'=>1400,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 1, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes',
+                'min_range_energy'=>1400,
+                'max_range_energy'=>null,
+                'include_min_energy'=>false,
+                'include_max_energy'=>false,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
             //Residenciales N2
-            ['category_id'=> 2, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 2, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 2, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'],
-            ['category_id'=> 2, 'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 2, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 2, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 2, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 2, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes',
+                'min_range_energy'=>0,
+                'max_range_energy'=>120,
+                'include_min_energy'=>true,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 2, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes',
+                'min_range_energy'=>120,
+                'max_range_energy'=>220,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 2,
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes',
+                'min_range_energy'=>220,
+                'max_range_energy'=>350,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 2, 
+                'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes',
+                'min_range_energy'=>350,
+                'max_range_energy'=>500,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=> null,
+            ],
+            [
+                'category_id'=> 2, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes',
+                'min_range_energy'=>500,
+                'max_range_energy'=>700,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 2, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes',
+                'min_range_energy'=>700,
+                'max_range_energy'=>1400,
+                'include_min_energy'=>false,
+                'include_max_energy'=>true,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
+            [
+                'category_id'=> 2, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes',
+                'min_range_energy'=>1400,
+                'max_range_energy'=>null,
+                'include_min_energy'=>false,
+                'include_max_energy'=>false,
+                'min_range_power'=>null,
+                'max_range_power'=>null,
+                'include_min_power'=>false,
+                'include_max_power'=>false,
+                'transformer_apparent_power'=>null,
+            ],
             //Residenciales N3
-            ['category_id'=> 3, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 250 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 250 kWh/mes y menores o iguales a 400 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 400 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 3, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 250 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 250 kWh/mes y menores o iguales a 400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 400 kWh/mes y menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 3, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Alumbrado Público
-            ['category_id'=> 4, 'description'=> 'Alumbrado Público'],
+            [
+                'category_id'=> 4, 
+                'description'=> 'Alumbrado Público'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Comercial
-            ['category_id'=> 5, 'description'=> 'Consumos menores o iguales a 60 kWh/mes'],
-            ['category_id'=> 5, 'description'=> 'Consumos mayores a 60 kWh/mes y menores a 2000 kWh/mes'],
-            ['category_id'=> 5, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'],
-            ['category_id'=> 5, 'description'=> 'Consumos mayores a 4000 kWh/mes'],
+            [
+                'category_id'=> 5, 
+                'description'=> 'Consumos menores o iguales a 60 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 5, 
+                'description'=> 'Consumos mayores a 60 kWh/mes y menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 5, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 5, 
+                'description'=> 'Consumos mayores a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Industriales
-            ['category_id'=> 6, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 6, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'],
-            ['category_id'=> 6, 'description'=> 'Consumos mayores a 4000 kWh/mes'],
+            [
+                'category_id'=> 6, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 6, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 6, 
+                'description'=> 'Consumos mayores a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Asociaciones Civiles
-            ['category_id'=> 7, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 7, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'],
+            [
+                'category_id'=> 7, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 7, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Oficiales
-            ['category_id'=> 8, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 8, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'],
+            [
+                'category_id'=> 8, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 8, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Entidades de Bien Público
-            ['category_id'=> 9, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 9, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 9, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'],
-            ['category_id'=> 9, 'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 9, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 9, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 9, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 9, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Entidad Integrante del Sistema Nacional de Bomberos Voluntarios
-            ['category_id'=> 10, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 10, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'],
-            //Rurales
-            ['category_id'=> 11, 'description'=> 'Consumos menores o iguales a 200 kWh/mes con transformador de 5 kVA'],
-            ['category_id'=> 11, 'description'=> 'Consumos mayores a 200 kWh/mes y menores a 2000 kWh/mes con transformador de 5 kVA'],
-            ['category_id'=> 11, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes con transformador de 5 kVA'],
-            ['category_id'=> 11, 'description'=> 'Consumos menores o iguales a 200 kWh/mes con transformador de 10 kVA'],
-            ['category_id'=> 11, 'description'=> 'Consumos mayores a 200 kWh/mes con transformador de 10 kVA'],
-            ['category_id'=> 11, 'description'=> 'Consumos menores o iguales a 200 kWh/mes con transformador mayor a 10 kVA'], //Desarrollar lógica de facturación diferente al resto
-            ['category_id'=> 11, 'description'=> 'Consumos mayores a 200 kWh/mes con transformador mayor a 10 kVA'], //Desarrollar lógica de facturación diferente al resto
+            [
+                'category_id'=> 10, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 10, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            //Rurales (//Desarrollar lógica de facturación diferente al resto)
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos menores o iguales a 200 kWh/mes con transformador de 5 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos mayores a 200 kWh/mes y menores a 2000 kWh/mes con transformador de 5 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes con transformador de 5 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos menores o iguales a 200 kWh/mes con transformador de 10 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos mayores a 200 kWh/mes con transformador de 10 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos menores o iguales a 200 kWh/mes con transformador mayor a 10 kVA',
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ], 
+            [
+                'category_id'=> 11, 
+                'description'=> 'Consumos mayores a 200 kWh/mes con transformador mayor a 10 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ], 
             //Grandes Usuarios en BT 
-            ['category_id'=> 12, 'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'],
-            ['category_id'=> 12, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW'],
-            ['category_id'=> 12, 'description'=> 'Potencias contratadas mayores o iguales a 3000 kW'],
-            ['category_id'=> 12, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'],
+            [
+                'category_id'=> 12, 
+                'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 12, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 12, 
+                'description'=> 'Potencias contratadas mayores o iguales a 3000 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 12, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Grandes Usuarios en 13,2 kV
-            ['category_id'=> 13, 'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'],
-            ['category_id'=> 13, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW'],
-            ['category_id'=> 13, 'description'=> 'Potencias contratadas mayores o iguales a 3000 kW'],
-            ['category_id'=> 13, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'],
+            [
+                'category_id'=> 13, 
+                'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 13, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 13, 
+                'description'=> 'Potencias contratadas mayores o iguales a 3000 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 13, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Grandes Usuarios en 33 kV
-            ['category_id'=> 14, 'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'],
-            ['category_id'=> 14, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW'],
-            ['category_id'=> 14, 'description'=> 'Potencias contratadas mayores o iguales a 3000 kW'],
-            ['category_id'=> 14, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'],
+            [
+                'category_id'=> 14, 
+                'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 14, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 14, 
+                'description'=> 'Potencias contratadas mayores o iguales a 3000 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 14, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Riego Agrícola
-            ['category_id'=> 15, 'description'=> 'Potencias menores a 300 kW'],
-            ['category_id'=> 15, 'description'=> 'Potencias mayores o iguales a 300 kW'],
+            [
+                'category_id'=> 15, 
+                'description'=> 'Potencias menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 15, 
+                'description'=> 'Potencias mayores o iguales a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Residenciales N1
-            ['category_id'=> 16, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 16, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 16, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 16, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 16, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 16, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 16, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 16, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 16, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 16, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 16, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 16, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Residenciales N2
-            ['category_id'=> 17, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 17, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 17, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'],
-            ['category_id'=> 17, 'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 17, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 17, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 17, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 17, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Residenciales N3
-            ['category_id'=> 18, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 250 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 250 kWh/mes y menores o iguales a 400 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 400 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 18, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 250 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 250 kWh/mes y menores o iguales a 400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 400 kWh/mes y menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 18, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Alumbrado Público
-            ['category_id'=> 19, 'description'=> 'Alumbrado Público'],
+            [
+                'category_id'=> 19, 
+                'description'=> 'Alumbrado Público'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Comerciales
-            ['category_id'=> 20, 'description'=> 'Consumos menores o iguales a 60 kWh/mes'],
-            ['category_id'=> 20, 'description'=> 'Consumos mayores a 60 kWh/mes y menores a 2000 kWh/mes'],
-            ['category_id'=> 20, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'],
-            ['category_id'=> 20, 'description'=> 'Consumos mayores a 4000 kWh/mes'],
+            [
+                'category_id'=> 20, 
+                'description'=> 'Consumos menores o iguales a 60 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 20, 
+                'description'=> 'Consumos mayores a 60 kWh/mes y menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 20, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 20, 
+                'description'=> 'Consumos mayores a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Industriales
-            ['category_id'=> 21, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 21, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'],
-            ['category_id'=> 21, 'description'=> 'Consumos mayores a 4000 kWh/mes'],
+            [
+                'category_id'=> 21, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 21, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes y menores o iguales a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 21, 
+                'description'=> 'Consumos mayores a 4000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Asociaciones Civiles
-            ['category_id'=> 22, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 22, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'],
+            [
+                'category_id'=> 22, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 22, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Oficiales
-            ['category_id'=> 23, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 23, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'],
+            [
+                'category_id'=> 23, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 23, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Entidades de Bien Público
-            ['category_id'=> 24, 'description'=> 'Consumos menores o iguales a 120 kWh/mes'],
-            ['category_id'=> 24, 'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'],
-            ['category_id'=> 24, 'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'],
-            ['category_id'=> 24, 'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 24, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 24, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 24, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos menores o iguales a 120 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos mayores a 120 kWh/mes y menores o iguales a 220 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos mayores a 220 kWh/mes y menores o iguales a 350 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos mayores a 350 kWh/mes y menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 24, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Entidad Integrante del Sistema Nacional de Bomberos Voluntarios
-            ['category_id'=> 25, 'description'=> 'Consumos menores a 2000 kWh/mes'],
-            ['category_id'=> 25, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'],
+            [
+                'category_id'=> 25, 
+                'description'=> 'Consumos menores a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 25, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Rurales
-            ['category_id'=> 26, 'description'=> 'Consumos menores a 2000 kWh/mes con transformador de 5 kVA'],
-            ['category_id'=> 26, 'description'=> 'Consumos mayores o iguales a 2000 kWh/mes con transformador de 5 kVA'],
-            ['category_id'=> 26, 'description'=> 'Transformador de 10 kVA'],
-            ['category_id'=> 26, 'description'=> 'Transformador mayor a 10 kVA'],
+            [
+                'category_id'=> 26, 
+                'description'=> 'Consumos menores a 2000 kWh/mes con transformador de 5 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 26, 
+                'description'=> 'Consumos mayores o iguales a 2000 kWh/mes con transformador de 5 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 26, 
+                'description'=> 'Transformador de 10 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 26, 
+                'description'=> 'Transformador mayor a 10 kVA'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Grandes Usuarios en BT
-            ['category_id'=> 27, 'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'],
-            ['category_id'=> 27, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW'],
-            ['category_id'=> 27, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'],
+            [
+                'category_id'=> 27, 
+                'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 27, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 27, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Grandes Usuarios en 13,2 kV
-            ['category_id'=> 28, 'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'],
-            ['category_id'=> 28, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW'],
-            ['category_id'=> 28, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'],
+            [
+                'category_id'=> 28, 
+                'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 28, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 28, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Grandes Usuarios en 33 kV
-            ['category_id'=> 29, 'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'],
-            ['category_id'=> 29, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW'],
-            ['category_id'=> 29, 'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'],
+            [
+                'category_id'=> 29, 
+                'description'=> 'Potencias contratadas mayores a 50 kW y menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 29, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 29, 
+                'description'=> 'Potencias contratadas mayores o iguales a 300 kW y menores a 3000 kW (OP-SALUD-EDUC)'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Riego Agrícola
-            ['category_id'=> 30, 'description'=> 'Potencias menores a 300 kW'],
-            ['category_id'=> 30, 'description'=> 'Potencias mayores o iguales a 300 kW'],
-            ['category_id'=> 30, 'description'=> 'Rural disperso'],
+            [
+                'category_id'=> 30, 
+                'description'=> 'Potencias menores a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 30, 
+                'description'=> 'Potencias mayores o iguales a 300 kW'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 30, 
+                'description'=> 'Rural disperso'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //Electrodependientes
-            ['category_id'=> 31, 'description'=> 'Consumos menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 31, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 31, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 31, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 31, 
+                'description'=> 'Consumos menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 31, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 31, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 31, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
             //ZNC: Electrodependientes 
-            ['category_id'=> 32, 'description'=> 'Consumos menores o iguales a 500 kWh/mes'],
-            ['category_id'=> 32, 'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'],
-            ['category_id'=> 32, 'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'],
-            ['category_id'=> 32, 'description'=> 'Consumos mayores a 1400 kWh/mes'],
+            [
+                'category_id'=> 32, 
+                'description'=> 'Consumos menores o iguales a 500 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 32, 
+                'description'=> 'Consumos mayores a 500 kWh/mes y menores o iguales a 700 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 32, 
+                'description'=> 'Consumos mayores a 700 kWh/mes y menores o iguales a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
+            [
+                'category_id'=> 32, 
+                'description'=> 'Consumos mayores a 1400 kWh/mes'
+                'min_range_energy'=>
+                'max_range_energy'=>
+                'include_min_energy'=>
+                'include_max_energy'=>
+                'min_range_power'=>
+                'max_range_power'=>
+                'include_min_power'=>
+                'include_max_power'=>
+                'transformer_apparent_power'=>
+            ],
         ];
 
         foreach($subcategories as $row){

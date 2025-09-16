@@ -15,8 +15,21 @@ return new class extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained('categories')->onDelete('restrict');
             $table->string('description',100);
+            // Rango de energía
+            $table->integer('min_range_energy')->nullable();
+            $table->integer('max_range_energy')->nullable();
+            $table->boolean('include_min_energy');
+            $table->boolean('include_max_energy');
+            // Rango de potencia
+            $table->integer('min_range_power')->nullable();
+            $table->integer('max_range_power')->nullable();
+            $table->boolean('include_min_power');
+            $table->boolean('include_max_power');
+            // Potencia aparente del transformador
+            $table->integer('transformer_apparent_power')->nullable();
             $table->timestamps();
         });
+
     }
 
     /**
