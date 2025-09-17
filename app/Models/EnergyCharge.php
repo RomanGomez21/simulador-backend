@@ -13,7 +13,7 @@ class EnergyCharge extends Model
         return $this->belongsTo(StructureDetail::class);
     }
 
-    public function APE_charge() 
+    public function ape_charge() 
     {
         return $this->belongsTo(APECharge::class);
     }

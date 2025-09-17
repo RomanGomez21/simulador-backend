@@ -1722,7 +1722,7 @@ class SubcategorySeeder extends Seeder
                 'include_min_power'=>false,
                 'include_max_power'=>false,
                 'transformer_apparent_power'=>null,
-            ],
+            ]
         ];
 
         foreach($subcategories as $row){

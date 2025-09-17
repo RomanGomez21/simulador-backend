@@ -42,15 +42,18 @@ class ChangeAction {
         if($last_period_year->period_structure_year->exists) {
             $last_structure=Structure::with('structure_details.subcategory.category',
                                             'structure_details.fixed_charges',
-                                            'structure_details.energy_charges.APE_charge',
+                                            'structure_details.energy_charges.ape_charge',
                                             'structure_details.energy_charges.energy_price',
                                             'structure_details.step_charges',
                                             'structure_details.subsidies',
                                             'structure_details.energy_injection_charges',
                                             'structure_details.consumptions.injection',)
                                     ->find($last_period_year->period_structure_year->structure_id);
-            
-            return $this->structureService->generate_JSON_from_structure($last_structure,$data);
+
+            $last_period_structure=$last_period_year->period->description;
+            $last_year_structure= (string) $last_period_year->year->value;
+
+            return $this->structureService->generate_JSON_from_structure($last_structure,$data,$last_period_structure,$last_year_structure);
         }
         //Cuadro tarifario proyectado (PENDIENTE)
 

@@ -9,7 +9,7 @@ class IndexStructureAction {
         
         $structure=Structure::with('structure_details.subcategory.category',
                                 'structure_details.fixed_charges',
-                                'structure_details.energy_charges.APE_charge',
+                                'structure_details.energy_charges.ape_charge',
                                 'structure_details.energy_charges.energy_price',
                                 'structure_details.step_charges',
                                 'structure_details.subsidies',

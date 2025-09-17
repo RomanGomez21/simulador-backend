@@ -12,7 +12,7 @@ class ChangeController extends Controller
     public function change(ChangeRequest $request, ChangeAction $action) {
         try {
 
-            $data= $action->change($request->validated());
+            $data= $action->change($request->all());
 
             return response()->json([
                 'success' => true,

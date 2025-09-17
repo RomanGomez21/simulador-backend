@@ -27,10 +27,6 @@ class ChangeRequest extends FormRequest
         return [
             'period_id'=> 'required|integer|exists:periods,id',
             'year_id'=> 'required|integer|exists:years,id',
-            'JSON_structure'=>'nullable|array', //Se recibe la estructura completa modificada manualmente por el usuario para cuando la cantidad de monomicos cambia.
-            //"energy_prices" => 'required|array',
-            //"energy_prices.*.description" => 'required|string',
-            //"energy_prices.*.value" => 'required|regex:/^\d{1,17}(\.\d{1,3})?$/', 
             'changes'=> 'required|array',
             'changes.*.type'=>[
                 'required',
@@ -69,8 +65,8 @@ class ChangeRequest extends FormRequest
                                     $validator->errors()->add("changes.$index.value", "El campo value debe ser un decimal cuando el campo type es de tipo $type");
                                 } else {
                                     // Parámetro value decimal entre 0 y 100
-                                    if($change['value']<0 || $change['value']>200) {
-                                        $validator->errors()->add("changes.$index.value", "El campo value estar entre 1 y 200 cuando el campo type es de tipo $type");
+                                    if($change['value']<-200 || $change['value']>200) {
+                                        $validator->errors()->add("changes.$index.value", "El campo value estar entre -200 y 200 cuando el campo type es de tipo $type");
                                     }
                                 }
                             } 
@@ -81,7 +77,7 @@ class ChangeRequest extends FormRequest
                                     $validator->errors()->add("changes.$index.value", "El campo value debe ser un decimal cuando el campo type es de tipo $type");
                                 } else {
                                     // Parámetro value de hasta 20 digitos y 3 decimales
-                                    if (!preg_match('/^\d{1,17}(\.\d{1,3})?$/', (string)$change['value'])) {
+                                    if (!preg_match('/^-?\d{1,17}(\.\d{1,3})?$/', (string)$change['value'])) {
                                         $validator->errors()->add("changes.$index.value", "El campo value puede tener hasta 20 digitos y solo acepta hasta 3 decimales cuando el campo type es de tipo $type ");
                                     }
                                 }
@@ -89,10 +85,16 @@ class ChangeRequest extends FormRequest
                         }
                         //Parámetro filter
                         if (array_key_exists('filter', $change)) {
-                            if (!is_string($change['filter'])) {
-                                $validator->errors()->add("changes.$index.filter", "El campo filter debe ser una cadena de texto cuando el campo type es de tipo $type");
+                            if (!is_array($change['filter'])) {
+                                $validator->errors()->add("changes.$index.filter", "El campo filter debe ser un array de cargos cuando el campo type es de tipo $type");
                             }
-                        }   
+                        }
+                        //Parámetro except_to
+                        if (array_key_exists('except_to', $change)) {
+                            if (!is_array($change['except_to'])) {
+                                $validator->errors()->add("changes.$index.except_to", "El campo except_to debe ser un array de categorías cuando el campo type es de tipo $type");
+                            }
+                        }    
                     } //FIN del if para los casos de increase_C y increase_%
                     //Casos para cambios de tipo addition o removal
                     if(in_array($type,['addition'])) {
@@ -111,11 +113,36 @@ class ChangeRequest extends FormRequest
                                         $validator->errors()->add("changes.$index.description", "El campo description es requerido y debe ser una cadena de texto");
                                     }
                                     //Parámetro value requerido
-                                    if (!array_key_exists('value',$change) || !preg_match('/^\d{1,17}(\.\d{1,3})?$/', (string)$change['value'])) {
+                                    if (!array_key_exists('value',$change) || !preg_match('/^-?\d{1,17}(\.\d{1,3})?$/', (string)$change['value'])) {
                                         $validator->errors()->add("changes.$index.value", "El campo value es requerido y puede tener hasta 20 digitos y solo acepta hasta 3 decimales cuando el campo type es de tipo $type y el campo type_charge es $type_charge");
                                     }
                                 }
                                 //Parámetros para el caso de añadir un concepto de energía (PENDIENTE)
+                            }
+                        }
+                    }
+                    // Cambios de tipo energy_prices
+                    if(in_array($type,['energy_price'])) {
+                        //Parámetro energy_prices
+                        if (array_key_exists('energy_prices', $change)) {
+                            if (!is_array($change['energy_prices'])) {
+                                $validator->errors()->add("changes.$index.energy_prices", "El campo energy_prices debe ser un array de monómicos cuando el campo type es de tipo $type");
+                            } else {
+                                foreach($change['energy_prices'] as $j=>$energy_price) {
+                                    if(!array_key_exists('description',$energy_price) || !is_string($energy_price['description'])) {
+                                        $validator->errors()->add("changes.$index.energy_prices.$j.description", "El campo description es requerido y debe ser una cadena de texto");
+                                    }
+                                    if (!array_key_exists('value',$energy_price) || !preg_match('/^-?\d{1,17}(\.\d{1,3})?$/', (string)$energy_price['value'])) {
+                                            $validator->errors()->add("changes.$index.energy_prices.$j.value", "El campo value es requerido y puede tener hasta 20 digitos y solo acepta hasta 3 decimales");
+                                    }   
+                                }
+                            } 
+                        }
+                        
+                        //Parámetro json_structure
+                        if (array_key_exists('json_structure', $change)) {
+                            if (!is_array($change['json_structure'])) {
+                                $validator->errors()->add("changes.$index.json_structure", "El campo json_structure debe ser un array de toda la estructura cuando el campo type es de tipo $type");
                             }
                         }
                     }

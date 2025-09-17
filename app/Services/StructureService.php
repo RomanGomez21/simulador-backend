@@ -15,6 +15,8 @@ use App\Models\Injection;
 use App\Models\Year;
 use App\Models\PeriodYear;
 use App\Models\PeriodStructureYear;
+use Illuminate\Support\Facades\Storage; //Para guardar el JSON en storage/app
+use App\Models\Category;
 
 class StructureService {
 
@@ -204,7 +206,7 @@ class StructureService {
         $new_structure->load(
             'structure_details.subcategory.category',
             'structure_details.fixed_charges',
-            'structure_details.energy_charges.APE_charge',
+            'structure_details.energy_charges.ape_charge',
             'structure_details.energy_charges.energy_price',
             'structure_details.step_charges',
             'structure_details.subsidies',
@@ -215,11 +217,108 @@ class StructureService {
         return $new_structure;
     }
 
-    public function generate_JSON_from_structure (Structure $structure, array $data): array {
-        dd($structure);
+    public function generate_JSON_from_structure (Structure $last_structure, array $data, string $periodo_structure, string $year_structure): array {
 
-        $new_JSON=[];
+        $new_structure_array=[];
+
+        //Datos de Cabecera
+        $new_structure_array['period_id']=$data['period_id'];
+        $new_structure_array['year_id']=$data['year_id'];
+
+        //Detalles del Cuadro Consolidado 
+        $detalles_last_structure=$last_structure['structure_details'];
+
+        //VAD DE APE DE ULTIMO CUADRO TARIFARIO CONSOLIDADO
+        $vad_ape_last_structure=(float) APEcharge::where('description','like',"%".$periodo_structure. " ".$year_structure."%")->first()->value;
+        
+
+        //Variables de cambios, filtros 
+        //APE
+        $categorias_exceptuadas_incremento_VAD_APE=[];
+        //Fixed Charges
+        $fixed_charges_changes=[];
+        $categorias_exceptuadas_fixed_charges_changes=[];
+        //Step Charges
+        $step_charges_changes=[];  
+        $categorias_exceptuadas_step_charges_changes=[];
+        //Subsidy Charges
+        $subsidy_charges_changes=[];  
+        $categorias_exceptuadas_subsidy_charges_changes=[];
+
+        $hay_removal = false;
+        $hay_addition = false;
+        $hay_cambio_monomicos=false;
+
+        
+        //VAD DE APE DE LA NUEVA ESTRUCTURA EN CASO DE QUE NO HAYA INCREMENTO DE VAD DE APE
+        $new_structure_array['ape_charge']['value']=$vad_ape_last_structure;
+
+
+        foreach ($data['changes'] as $index=>$change) {
+            //Incremento constante o porcentual
+            if (in_array($change['type'],['increase_%','increase_C'])){
+                //VAD APE
+                if($change['type_charge'] === 'APE') {      
+                    if($change['type']==='increase_%') {
+                        $new_structure_array['ape_charge']['value']= $vad_ape_last_structure*(1+($change['value']/100));
+                    } else {
+                        $new_structure_array['ape_charge']['value']= $vad_ape_last_structure+$change['value'];
+                    }
+                    foreach($change['except_to'] as $clave) {
+                        $categorias_encontradas=Category::where('description','like',"%".$clave."%")->get();
+                        foreach($categorias_encontradas as $categoria_encontrada) {
+                            $categorias_exceptuadas_incremento_VAD_APE[]=$categoria_encontrada->id;
+                        }
+                    }
+                }
+                //FIXED
+                if($change['type_charge'] === 'fixed') {
+                    $fixed_charges_changes[$index][]=[$change['type'],$change['value'],$change['filter']];
+                    foreach($change['except_to'] as $clave) {
+                        $categorias_encontradas=Category::where('description','like',"%".$clave."%")->get();
+                        foreach($categorias_encontradas as $categoria_encontrada) {
+                            $categorias_exceptuadas_fixed_charges_changes[$index][]=$categoria_encontrada->id;                   
+                        }
+                    }
+                }
+                //STEP
+                if($change['type_charge'] === 'step') {
+                    $step_charges_changes[$index][]=[$change['type'],$change['value'],$change['filter']];
+                    foreach($change['except_to'] as $clave) {
+                        $categorias_encontradas=Category::where('description','like',"%".$clave."%")->get();
+                        foreach($categorias_encontradas as $categoria_encontrada) {
+                            $categorias_exceptuadas_step_charges_changes[$index][]=$categoria_encontrada->id;  
+                        }
+                    }
+                }
+                //SUBSIDY
+                if($change['type_charge'] === 'subsidy') {
+                    $subsidy_charges_changes[$index][]=[$change['type'],$change['value'],$change['filter']];
+                    foreach($change['except_to'] as $clave) {
+                        $categorias_encontradas=Category::where('description','like',"%".$clave."%")->get();
+                        foreach($categorias_encontradas as $categoria_encontrada) {
+                            $categorias_exceptuadas_subsidy_charges_changes[$index][]=$categoria_encontrada->id;  
+                        }
+                    }
+                }      
+            }
+            //Definición de Monómicos
+            if (in_array($change['type'],['energy_prices'])) {
+                $hay_cambio_monomicos=true;
+            }
+        }
+
+        dd($fixed_charges_changes,$categorias_exceptuadas_fixed_charges_changes);
+
+
+        //$new_structure_JSON=json_encode($new_structure_array, JSON_PRETTY_PRINT);
         
     }
+
+    //Función que convierte estructura a JSON
+    public function convert_JSON (Structure $structure) {
+        $array=[];
+        
+    }  
 
 }
