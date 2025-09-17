@@ -15,3 +15,6 @@ Route::get('/structures', [StructureController::class, 'index']);
 
 //Change
 Route::post('/changes', [ChangeController::class, 'change']);
+
+//Última estructura en formato JSON o última proyección JSON
+Route::get('/last-structure-or-projection-json', [StructureController::class, 'show_json']);

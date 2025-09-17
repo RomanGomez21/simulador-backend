@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStructureRequest;
 use App\Actions\StoreStructureAction;
 use App\Actions\IndexStructureAction;
+use App\Actions\ShowJsonAction;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -44,6 +45,18 @@ class StructureController extends Controller
                 'data' => $data,
                 'message' => 'Cuadros Tarifarios consolidados',
         ], 200);
+    }
+
+    public function show_json(ShowJsonAction $action) {
+        
+        $data=$action->show_json();
+
+        return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Última tarifa consolidada en formato JSON/Última proyección en formato JSON',
+        ], 200);
+
     }
 
 }

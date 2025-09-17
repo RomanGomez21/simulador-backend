@@ -217,7 +217,7 @@ class StructureService {
         return $new_structure;
     }
 
-    public function generate_JSON_from_structure (Structure $last_structure, array $data, string $periodo_structure, string $year_structure): array {
+    public function generate_JSON (array $last_structure, array $data, string $periodo_structure, string $year_structure): array {
 
         $new_structure_array=[];
 
@@ -302,10 +302,6 @@ class StructureService {
                     }
                 }      
             }
-            //Definición de Monómicos
-            if (in_array($change['type'],['energy_prices'])) {
-                $hay_cambio_monomicos=true;
-            }
         }
 
         dd($fixed_charges_changes,$categorias_exceptuadas_fixed_charges_changes);
@@ -316,9 +312,9 @@ class StructureService {
     }
 
     //Función que convierte estructura a JSON
-    public function convert_JSON (Structure $structure) {
+    public function convert_JSON (array $structure): array {
         $array=[];
-        
+        dd("holasdasdasdsaa");
     }  
 
 }

@@ -48,12 +48,35 @@ class ChangeAction {
                                             'structure_details.subsidies',
                                             'structure_details.energy_injection_charges',
                                             'structure_details.consumptions.injection',)
-                                    ->find($last_period_year->period_structure_year->structure_id);
-
+                                    ->find($last_period_year->period_structure_year->structure_id)->toArray();
+            //Periodo de la última tarifa consolidada
             $last_period_structure=$last_period_year->period->description;
+            //Año de la última tarifa consolidada
             $last_year_structure= (string) $last_period_year->year->value;
+            /*Si hay un cambio de monomicos pasan dos cosas:
+            1) Si la cantidad se conserva se pasa $last_structure
+            2) Si la cantidad no se conserva se pasa el parámetro json_structure del cambio de tipo 'energy_price'
+            */
+            foreach ($data['changes'] as $index=>$change) {
+                if (in_array($change['type'],['energy_price'])) {
+                    if (array_key_exists('json_structure', $change)) {
+                        return $this->structureService->generate_JSON(
+                            $change['json_structure'],
+                            $data,
+                            $last_period_structure,
+                            $last_year_structure
+                        );
+                    }
+                } 
+            }
 
-            return $this->structureService->generate_JSON_from_structure($last_structure,$data,$last_period_structure,$last_year_structure);
+            return $this->structureService->generate_JSON(
+                $this->structureService->convert_JSON($last_structure),
+                $data,
+                $last_period_structure,
+                $last_year_structure
+            );
+            
         }
         //Cuadro tarifario proyectado (PENDIENTE)
 
