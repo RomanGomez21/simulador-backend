@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StructureController;
 use App\Http\Controllers\ChangeController;
+use App\Http\Controllers\StructureDetailController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -12,6 +13,9 @@ Route::get('/user', function (Request $request) {
 //Structure
 Route::post('/structures', [StructureController::class, 'store']); //period_id , year_id
 Route::get('/structures', [StructureController::class, 'index']);
+
+//Structure Detail
+Route::get('/structure-details/{id}', [StructureDetailController::class, 'show']);
 
 //Change
 Route::post('/changes', [ChangeController::class, 'change']);
