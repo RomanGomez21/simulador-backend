@@ -15,6 +15,7 @@ use App\Models\Injection;
 use App\Models\Year;
 use App\Models\PeriodYear;
 use App\Models\PeriodStructureYear;
+use App\Models\Period;
 use Illuminate\Support\Facades\Storage; //Para guardar el JSON en storage/app
 use App\Models\Category;
 
@@ -312,9 +313,28 @@ class StructureService {
     }
 
     //Función que convierte estructura a JSON
-    public function convert_JSON (array $structure): array {
+    public function convert_JSON (array $structure, string $period, string $year): array {
         $array=[];
-        dd("holasdasdasdsaa");
+        //Número de Periodo 
+        $array["period"]=Period::where('description',$period)->first()->id;
+        $array["year"]=(int) $year;
+        $array["_comment_1"]= "Cada subcategoría con su composición de conceptos tarifarios";
+        $array["_comment_2"]="Cada concepto de energía puede tener asociado un VAD de APE viejo (a través de ape_charge_id que puede estar o no en el objeto) o el VAD de APE definido en este JSON. El atributo value se calcula para cada energy_charge";
+        $array["_comment_3"]="Cada cargo (energy,fixed,step) tiene acompañado (o no) un atributo subsidies para vincular el subsidio con el cargo a través del charge_id"; 
+        $array["ape_charge"]["value"]=APECharge::where('description',"VAD de APE $period $year")->first()->value;
+        //ID de monímicos de energía de la estructura
+        $energy_prices_ids=[];
+        foreach($structure['structure_details'] as $structure_detail) {
+            if (array_key_exists('energy_charges', $structure_detail)) {
+                foreach ($structure_detail['energy_charges'] as $energy_charge) {
+                    $energy_prices_ids[] = (int) $energy_charge['energy_price_id'];
+                }
+            }
+        }
+
+        $energy_prices_ids = array_unique($energy_prices_ids); //Elimino duplicados
+        sort($energy_prices_ids);  //Ordeno el array
+        $energy_prices_ids = array_values($energy_prices_ids); //Reindexo el array
     }  
 
 }

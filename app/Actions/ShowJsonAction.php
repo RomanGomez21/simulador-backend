@@ -26,10 +26,11 @@ class ShowJsonAction {
                                             'structure_details.step_charges',
                                             'structure_details.subsidies',
                                             'structure_details.energy_injection_charges',
-                                            'structure_details.consumptions.injection',)
+                                            'structure_details.consumptions.injection',
+                                            )
                                     ->find($last_period_year->period_structure_year->structure_id)->toArray();
-            //Convierto a formato JSON la estructua consolidada
-            return $this->structureService->convert_JSON($last_structure);
+            //Convierto la estructua consolidada, a formato de estructura JSON 
+            return $this->structureService->convert_JSON($last_structure,$last_period_year->period->description, $last_period_year->year->value);
         } else {
             //Última proyección generada
             $last_period_proyection= (string) $last_period_year->period->id;
