@@ -16,6 +16,7 @@ Route::get('/structures', [StructureController::class, 'index']);
 
 //Structure Detail
 Route::get('/structure-details/{id}', [StructureDetailController::class, 'show']);
+Route::post('/structure-details/calculate', [StructureDetailController::class, 'calculate']);
 
 //Change
 Route::post('/changes', [ChangeController::class, 'change']);
