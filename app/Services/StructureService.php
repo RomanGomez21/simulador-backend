@@ -321,8 +321,9 @@ class StructureService {
         $array["_comment_1"]= "Cada subcategoría con su composición de conceptos tarifarios";
         $array["_comment_2"]="Cada concepto de energía puede tener asociado un VAD de APE viejo (a través de ape_charge_id que puede estar o no en el objeto) o el VAD de APE definido en este JSON. El atributo value se calcula para cada energy_charge";
         $array["_comment_3"]="Cada cargo (energy,fixed,step) tiene acompañado (o no) un atributo subsidies para vincular el subsidio con el cargo a través del charge_id"; 
-        $array["ape_charge"]["value"]=APECharge::where('description',"VAD de APE $period $year")->first()->value;
-        //ID de monímicos de energía de la estructura
+        $ape_charge_structure=APECharge::where('description',"VAD de APE $period $year")->first();
+        $array["ape_charge"]["value"]= (float) $ape_charge_structure->value;
+        //IDs de monómicos de energía de la estructura
         $energy_prices_ids=[];
         foreach($structure['structure_details'] as $structure_detail) {
             if (array_key_exists('energy_charges', $structure_detail)) {
@@ -331,10 +332,155 @@ class StructureService {
                 }
             }
         }
-
         $energy_prices_ids = array_unique($energy_prices_ids); //Elimino duplicados
         sort($energy_prices_ids);  //Ordeno el array
         $energy_prices_ids = array_values($energy_prices_ids); //Reindexo el array
+        //Guardo los monómicos en el array
+        $energy_prices_ids_and_json_ids=[];
+        foreach($energy_prices_ids as $index=>$energy_price_id) {
+            $energy_price=EnergyPrice::find($energy_price_id);
+            $array['energy_prices'][]=[
+                'json_id'=>$index+1,
+                'description'=>$energy_price->description,
+                'value'=> (float) $energy_price->value,
+            ];
+            $energy_prices_ids_and_json_ids[] = [
+                'id'       => $energy_price_id,
+                'json_id'  => $index + 1,
+            ];
+        }
+        //Categorías y subcategorías
+        //Agrupo los structure_details por categoría
+        foreach($structure['structure_details'] as $structure_detail) {
+            $category_id = $structure_detail['subcategory']['category_id'];
+            $categories[$category_id][] = $structure_detail;
+        }
+        //Guardo las categorías y subcategorías en el array
+        foreach($categories as $category_id=>$structure_details){
+            $category_object=['id'=>$category_id, 'subcategories'=> []];
+            //Subcategorías
+            foreach($structure_details as $structure_detail){
+                $subcategory_object=[
+                    'id'=>$structure_detail['subcategory_id'], 
+                    'fixed_charges'=> [],
+                    'energy_charges'=> [],
+                    'step_charges'=> [],
+                    'energy_injection_charges'=> [],
+                    'consumptions'=>[],
+                ];
+                //Cargos Fijos
+                foreach($structure_detail['fixed_charges'] as $fixed_charge) {
+                    $fixed_charge_object=[
+                        'description'=>$fixed_charge['description'],
+                        'value'=>(float) $fixed_charge['value'],
+                    ];
+                    $subsidios_del_cargo=array_filter(
+                        $structure_detail['subsidies'], 
+                        function ($sub) use ($fixed_charge) {
+                            return $sub['charge_id'] === $fixed_charge['id'] && $sub['type'] === 'fixed';
+                        }
+                    );
+                    foreach($subsidios_del_cargo as $subsidio_del_cargo){
+                        $fixed_charge_object['subsidies'][]=[
+                            'description'=>$subsidio_del_cargo['description'],
+                            'value'=>(float) $subsidio_del_cargo['value'],
+                        ];
+                    }
+                    $subcategory_object['fixed_charges'][]=$fixed_charge_object;
+                }
+                //Costos de Compra de Energía
+                foreach($structure_detail['energy_charges'] as $energy_charge) {
+                    $energy_price_id_and_json_id=array_filter($energy_prices_ids_and_json_ids, function($energy_price) use ($energy_charge) {
+                                                return $energy_charge['energy_price_id'] === $energy_price["id"];
+                                            }
+                                        );
+                    
+                    $energy_price_id_and_json_id=reset($energy_price_id_and_json_id);
+                    if($energy_charge['ape_charge_id']!==$ape_charge_structure->id) {
+                        $energy_charge_object=[
+                            'json_id'=> $energy_price_id_and_json_id['json_id'],
+                            'description'=> $energy_charge['description'],
+                            'ape_charge_id'=>$energy_charge['ape_charge_id'],
+                            'min_range'=> (int) $energy_charge['min_range'],
+                            'max_range'=> $energy_charge['max_range'],
+                            "energy_loss_percentage"=> 10,
+                        ];
+                    } else {
+                        $energy_charge_object=[
+                            'json_id'=> $energy_price_id_and_json_id['json_id'],
+                            'description'=> $energy_charge['description'],
+                            'min_range'=> (int) $energy_charge['min_range'],
+                            'max_range'=> $energy_charge['max_range'],
+                            "energy_loss_percentage"=> 10,
+                        ];
+                    }
+                    
+                    $subsidios_del_cargo=array_filter(
+                        $structure_detail['subsidies'], 
+                        function ($sub) use ($energy_charge) {
+                            return $sub['charge_id'] === $energy_charge['id'] && $sub['type'] === 'energy';
+                        }
+                    );
+                    foreach($subsidios_del_cargo as $subsidio_del_cargo){
+                        $energy_charge_object['subsidies'][]=[
+                            'description'=>$subsidio_del_cargo['description'],
+                            'value'=>(float) $subsidio_del_cargo['value'],
+                        ];
+                    }
+                    $subcategory_object['energy_charges'][]=$energy_charge_object;
+                }
+                //Escalones de Consumo
+                foreach($structure_detail['step_charges'] as $step_charge) {
+                    $step_charge_object=[
+                        "description"=> $step_charge['description'],
+                        "unit"=> $step_charge['unit'],
+                        "min_range"=> (int) $step_charge['min_range'],
+                        "max_range"=>  $step_charge['max_range'],
+                        "value"=> (float) $step_charge['value'],
+                    ];
+
+                    $subsidios_del_cargo=array_filter(
+                        $structure_detail['subsidies'], 
+                        function ($sub) use ($step_charge) {
+                            return $sub['charge_id'] === $step_charge['id'] && $sub['type'] === 'step';
+                        }
+                    );
+                    foreach($subsidios_del_cargo as $subsidio_del_cargo){
+                        $step_charge_object['subsidies'][]=[
+                            'description'=>$subsidio_del_cargo['description'],
+                            'value'=>(float) $subsidio_del_cargo['value'],
+                        ];
+                    }
+                    $subcategory_object['step_charges'][]=$step_charge_object;
+                }
+                //Tarifa de Inyección
+                foreach($structure_detail['energy_injection_charges'] as $energy_injection_charge) {
+                    $energy_injection_charge_object=[
+                        'description'=>$energy_injection_charge['description'],
+                        'value'=> (float) $energy_injection_charge['value']
+                    ];
+                    $subcategory_object['energy_injection_charges'][]=$energy_injection_charge_object;
+                }
+                //Consumos
+                foreach($structure_detail['consumptions'] as $consumption) {
+                    $consumption_object=[
+                        "kwh_value" => $consumption["kwh_value"] !== null ?  (float) $consumption["kwh_value"] : null,
+                        "kvarh_value" => $consumption["kvarh_value"] !== null ?  (float) $consumption["kvarh_value"] : null,
+                        "kw_value" => $consumption["kw_value"] !== null ?  (float) $consumption["kw_value"] : null,
+                    ];
+                    if ($consumption['injection']!== null) {
+                        $consumption_object['injection']['kwh_value']=(float) $consumption['injection']['kwh_value'];
+                    } 
+                    $subcategory_object['consumptions'][]=$consumption_object;
+                }
+                $category_object['subcategories'][]=$subcategory_object;
+            }
+            
+            $array['categories'][]= $category_object;
+        }
+        
+        return($array);
+            
     }  
 
 }
