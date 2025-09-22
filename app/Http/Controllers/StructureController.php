@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStructureRequest;
+use App\Http\Requests\ShowStructureRequest;
 use App\Actions\StoreStructureAction;
 use App\Actions\IndexStructureAction;
+use App\Actions\ShowStructureAction;
 use App\Actions\ShowJsonAction;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -57,6 +59,26 @@ class StructureController extends Controller
                 'message' => 'Última tarifa consolidada en formato JSON/Última proyección en formato JSON',
         ], 200);
 
+    }
+
+    public function show(ShowStructureRequest $request, ShowStructureAction $action ) {
+        
+        try {
+            
+            $data = $action->show($request->validated());
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Estructura encontrada',
+            ], 200);
+
+        } catch (ModelNotFoundException $e) {
+            return response()->json([
+                'success'=> false,
+                'message' => 'Estructura no encontrada'
+            ], 404);
+        } 
     }
 
 }
