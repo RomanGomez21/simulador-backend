@@ -17,7 +17,7 @@ class ReportController extends Controller
             return response()->json([
                 'success' => true,
                 'data' => $data,
-                'message' => 'Cuadros Tarifarios consolidados',
+                'message' => 'Reporte generado correctamente',
             ], 200);
 
         } catch (ValidationException $e) {
