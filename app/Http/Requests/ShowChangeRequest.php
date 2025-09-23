@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class ShowStructureRequest extends FormRequest
+class ShowChangeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,11 @@ class ShowStructureRequest extends FormRequest
             'id' => $this->route('id'),
         ]);
     }
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
+
     public function rules(): array
     {
         return [
-            'id' => 'required|integer|exists:structures,id',
+            'id' => 'required|integer',
         ];
     }
 
@@ -38,7 +34,6 @@ class ShowStructureRequest extends FormRequest
         return [
             'id.required' => "El parámetro id es requerido",
             'id.integer' => "El parámetro id debe ser un entero",
-            'id.exists' => "El parámetro id debe ser un valor existente",
         ];
     }
 
@@ -48,4 +43,5 @@ class ShowStructureRequest extends FormRequest
             'errors' => $validator->errors(),
         ], 422));
     }
+
 }

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StructureController;
 use App\Http\Controllers\ChangeController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\StructureDetailController;
 
 Route::get('/user', function (Request $request) {
@@ -20,8 +21,12 @@ Route::get('/structure-details/{id}', [StructureDetailController::class, 'show']
 Route::post('/structure-details/calculate', [StructureDetailController::class, 'calculate']);
 
 //Change
+Route::get('/changes/{id}', [ChangeController::class, 'show']);
 Route::get('/changes', [ChangeController::class, 'index']);
 Route::post('/changes', [ChangeController::class, 'change']);
+
+//Report
+Route::get('/report/average-consumption', [ReportController::class, 'average_consumption']);
 
 //Última estructura en formato JSON o última proyección JSON
 Route::get('/last-structure-or-projection-json', [StructureController::class, 'show_json']);
