@@ -360,7 +360,7 @@
                         "kw_value": null
                     },
                     {
-                        "kwh_value": 500,
+                        "kwh_value": 520,
                         "kvarh_value": null,
                         "kw_value": null,
                         "injection" : {
@@ -971,7 +971,7 @@
                         "kw_value": null
                     },
                     {
-                        "kwh_value": 500,
+                        "kwh_value": 520,
                         "kvarh_value": null,
                         "kw_value": null,
                         "injection" : {
@@ -1716,7 +1716,7 @@
                         "kw_value": null
                     },
                     {
-                        "kwh_value": 500,
+                        "kwh_value": 520,
                         "kvarh_value": null,
                         "kw_value": null,
                         "injection" : {
