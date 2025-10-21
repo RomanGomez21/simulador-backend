@@ -244,11 +244,11 @@ class ReportAverageConsumptionAction {
 
                  // Si está dentro de la tolerancia, lo igualamos al valor de referencia
                 if (abs($diffPercent) < $tolerance) {
-                    $diffPercent = 0.0;
+                    $diffPercent = 0.00;
                     $appliedValue = $refValue;
                 }
 
-                $impact[$applied['id']][$key] = $diffPercent;
+                $impact[$applied['id']][$key] = number_format($diffPercent, 2, '.', '');
             }
         }
 

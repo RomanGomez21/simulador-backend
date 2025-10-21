@@ -5,7 +5,7 @@
     "_comment_2" : "Cada concepto de energía puede tener asociado un VAD de APE viejo (a través de ape_charge_id que puede estar o no en el objeto) o el VAD de APE definido en este JSON. El atributo value se calcula para cada energy_charge",
     "_comment_3" : "Cada cargo (energy,fixed,step) tiene acompañado (o no) un atributo subsidies para vincular el subsidio con el cargo a través del charge_id",
     "ape_charge": {
-        "value": 10.41593
+        "value": 10.416
     },
     "energy_prices": [
         {   

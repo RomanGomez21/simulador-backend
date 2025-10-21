@@ -5,6 +5,7 @@ use App\Models\PeriodYear;
 use App\Models\Structure;
 use App\Services\StructureService;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Storage;
 
 class ChangeAction {
 
@@ -53,11 +54,23 @@ class ChangeAction {
             $last_period_structure=$last_period_year->period->description;
             //Año de la última tarifa consolidada
             $last_year_structure= (string) $last_period_year->year->value;
+            //////////////////////
+            /////////////////////
+            
+            //Convertimos a JSON la tarifa consolidada 
+            $last_structure_JSON= $this->structureService->convert_JSON($last_structure, $last_period_structure, $last_year_structure);
+            //
+            $JSON_FORMAT = json_encode($last_structure_JSON, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+            
+            Storage::put('PRUEBA.json', $JSON_FORMAT);
+            dd('LISTO');
             /*Si hay un cambio de monomicos pasan dos cosas:
             1) Si la cantidad se conserva se pasa $last_structure
             2) Si la cantidad no se conserva se pasa el parámetro json_structure del cambio de tipo 'energy_price'
             */
-            foreach ($data['changes'] as $index=>$change) {
+            //foreach ($data['changes'] as $index=>$change) {
+                /*
                 if (in_array($change['type'],['energy_price'])) {
                     if (array_key_exists('json_structure', $change)) {
                         return $this->structureService->generate_JSON(
@@ -67,8 +80,9 @@ class ChangeAction {
                             $last_year_structure
                         );
                     }
-                } 
-            }
+                }
+                */ 
+            //}
 
             return $this->structureService->generate_JSON(
                 $this->structureService->convert_JSON($last_structure),
@@ -76,6 +90,9 @@ class ChangeAction {
                 $last_period_structure,
                 $last_year_structure
             );
+
+            
+            
             
         }
         //Cuadro tarifario proyectado (PENDIENTE)

@@ -19,7 +19,7 @@ class ChangeController extends Controller
         return response()->json([
                 'success' => true,
                 'data' => $data,
-                'message' => 'Cuadros Tarifarios consolidados',
+                'message' => 'Proyecciones generada',
         ], 200);
     }
 
@@ -32,7 +32,7 @@ class ChangeController extends Controller
             return response()->json([
                 'success' => true,
                 'data' => $data,
-                'message' => 'Cuadros Tarifarios consolidados',
+                'message' => 'Proyección generada',
             ], 200);
 
         } catch (ValidationException $e) {

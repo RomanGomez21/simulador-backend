@@ -18,7 +18,7 @@ class ShowJsonAction {
         //Recurro a la última estructura consolidada o proyectada del sistema. Representa el registro mán reciente de la tabla period_year
         $last_period_year=PeriodYear::orderBy('created_at', 'desc')->first();
         //Última estructura consolidada
-        if($last_period_year->period_structure_year->exists) {
+        if ($last_period_year->period_structure_year) { 
             $last_structure=Structure::with('structure_details.subcategory.category',
                                             'structure_details.fixed_charges',
                                             'structure_details.energy_charges.ape_charge',
@@ -30,7 +30,7 @@ class ShowJsonAction {
                                             )
                                     ->find($last_period_year->period_structure_year->structure_id)->toArray();
             //Convierto la estructua consolidada, a formato de estructura JSON 
-            return $this->structureService->convert_JSON($last_structure,$last_period_year->period->description, $last_period_year->year->value);
+            return $this->structureService->convert_JSON($last_structure,$last_period_year->period->description, $last_period_year->year->value); 
         } else {
             //Última proyección generada
             $last_period_proyection= (string) $last_period_year->period->id;

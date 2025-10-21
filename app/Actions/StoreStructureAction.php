@@ -22,18 +22,22 @@ class StoreStructureAction {
                                         ->where('year_id', $data['year_id'])
                                         ->firstOrFail();
 
-        if($period_year_in_db->period_structure_year->exists) {
+        if($period_year_in_db->period_structure_year) {
             throw ValidationException::withMessages([
                 'message' => "Ya existe un cuadro tarifario consolidado para el periodo y año ",
             ]);
         }
 
-        $structure_path = storage_path("app\{$period_year_in_db->period->description}_{$period_year_in_db->year->value}_structure.json");
+        $period_id = $period_year_in_db->period->id;
+        $year_value = $period_year_in_db->year->value;    
+        $filename = $period_id . "_" . $year_value . "_structure.json";      
+
+        $structure_path = storage_path("app\\" . $filename);
         $structure_content = file_get_contents($structure_path); //Obtengo cadena JSON
-        $structure_data = json_decode($structure_content, true); //Obtengo un array asociativo de la primera estructura del sistema
+        $structure_data = json_decode($structure_content, true); //Obtengo un array asociativo de la estructura del sistema
         
         $result=$this->structureService->store($structure_data);
 
-        return $result;
+        return $result->toArray();
     }
 }

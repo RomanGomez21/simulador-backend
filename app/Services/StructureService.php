@@ -398,7 +398,7 @@ class StructureService {
                     $energy_price_id_and_json_id=reset($energy_price_id_and_json_id);
                     if($energy_charge['ape_charge_id']!==$ape_charge_structure->id) {
                         $energy_charge_object=[
-                            'json_id'=> $energy_price_id_and_json_id['json_id'],
+                            'energy_price_json_id'=> $energy_price_id_and_json_id['json_id'],
                             'description'=> $energy_charge['description'],
                             'ape_charge_id'=>$energy_charge['ape_charge_id'],
                             'min_range'=> (int) $energy_charge['min_range'],
@@ -407,7 +407,7 @@ class StructureService {
                         ];
                     } else {
                         $energy_charge_object=[
-                            'json_id'=> $energy_price_id_and_json_id['json_id'],
+                            'energy_price_json_id'=> $energy_price_id_and_json_id['json_id'],
                             'description'=> $energy_charge['description'],
                             'min_range'=> (int) $energy_charge['min_range'],
                             'max_range'=> $energy_charge['max_range'],
